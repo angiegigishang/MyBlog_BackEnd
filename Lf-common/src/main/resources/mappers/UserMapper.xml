@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyf.common.mapper.UserMapper" >
+
+    <resultMap type="com.lyf.common.entity.LfyUsrDo" id="userResultMap">
+        <result property="lfyUsrNbr" column="LFY_USR_NBR"/>
+        <result property="lfyUsrNam" column="LFY_USR_NAM"/>
+        <result property="lfyUsrAdr" column="LFY_USR_ADR"/>
+        <result property="lfyUsrPhe" column="LFY_USR_PHE"/>
+        <result property="lfyAdmFlg" column="LFY_ADM_FLG"/>
+    </resultMap>
+
+
+    <insert id="addUser" parameterType="com.lyf.common.entity.LfyUsrDo">
+        insert into lfy_usr_inf (
+            LFY_USR_NBR,
+            LFY_USR_NAM,
+            LFY_USR_ADR,
+            LFY_USR_PHE,
+            LFY_USR_PWD,
+            LFY_ADM_FLG,
+            LFY_MNT_DAT,
+            LFY_MNT_TIM,
+            LFY_EXT_C60,
+            LFY_RCD_STS,
+            LFY_RCD_VER
+        ) values (
+            #{lfyUsrNbr},
+            #{lfyUsrNam},
+            #{lfyUsrAdr},
+            #{lfyUsrPhe},
+            #{lfyUsrPwd},
+            #{lfyAdmFlg},
+            #{lfyMntDat},
+            #{lfyMntTim},
+            '',
+            'A',
+            1
+        )
+    </insert>
+
+</mapper>
+
+
+

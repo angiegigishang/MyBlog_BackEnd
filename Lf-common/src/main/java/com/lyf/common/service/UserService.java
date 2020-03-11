@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserService {
@@ -14,8 +13,12 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public List<Map<String, Object>> getList() {
+    public List<LfyUsrDo> getList() {
         return userMapper.getList();
+    }
+
+    public void add(LfyUsrDo user) {
+        userMapper.addUser(user);
     }
 
 }

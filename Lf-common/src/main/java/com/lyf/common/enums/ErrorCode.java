@@ -3,7 +3,9 @@ package com.lyf.common.enums;
 public enum ErrorCode {
 
     SUC0000("SUC0000", "成功"),
-    UKN0001("UKN0001", "未知错误")
+    UKN0001("UKN0001", "未知错误"),
+
+    ERR0001("ERR0001", "输入参数有误")
 
     ;
 
