@@ -16,4 +16,7 @@ public interface LoginMapper {
     @Select("select * from lyf_usr_lgn where LFY_USR_NBR = #{lfyUsrNbr} and LFY_LGN_STS = 'A'")
     LfyUsrLgn select(String lfyUsrNbr);
 
+    @Select("select LFY_USR_NBR from lyf_usr_lgn where LFY_LGN_TOK = #{token} and LFY_LGN_STS = 'A'")
+    String selectByToken(String token);
+
 }

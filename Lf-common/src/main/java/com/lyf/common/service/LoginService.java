@@ -52,4 +52,10 @@ public class LoginService {
         loginMapper.logout(id);
     }
 
+
+    public String getUserNbrByToken(String token) {
+        return loginMapper.selectByToken(token);
+    }
+
+
 }

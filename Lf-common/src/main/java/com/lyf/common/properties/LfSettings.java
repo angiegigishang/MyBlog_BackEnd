@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-@ConfigurationProperties(prefix = "lf.service")
+@ConfigurationProperties(prefix = "lfy.service")
 public class LfSettings {
 
     private List<String> addr;

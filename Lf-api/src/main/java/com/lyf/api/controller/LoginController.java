@@ -3,10 +3,12 @@ package com.lyf.api.controller;
 import com.lyf.api.dto.UsrLgnInn;
 import com.lyf.common.dto.RestHttpReply;
 import com.lyf.common.dto.RestHttpRequest;
+import com.lyf.common.entity.LfyUsrDo;
 import com.lyf.common.entity.LfyUsrLgn;
 import com.lyf.common.enums.ErrorCode;
 import com.lyf.common.exception.AppException;
 import com.lyf.common.service.LoginService;
+import com.lyf.common.utils.ThreadUtil;
 import com.lyf.common.utils.ValidUtil;
 import lombok.Data;
 import org.apache.commons.beanutils.BeanUtils;
@@ -67,6 +69,12 @@ public class LoginController {
             UsrLgnInn uin = new UsrLgnInn();
             BeanUtils.populate(uin, request.getBody());
             ValidUtil.validate(uin);
+
+            LfyUsrDo user = (LfyUsrDo) ThreadUtil.get();
+            if(!user.getLfyUsrNbr().equals(uin.getLfyUsrNbr())) {
+                throw new AppException(ErrorCode.ERR0007);
+            }
+
             loginService.logout(uin.getLfyUsrNbr());
 
         } catch (AppException e) {

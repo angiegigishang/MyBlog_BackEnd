@@ -7,6 +7,7 @@ spring:
     encoding:
       charset: utf-8
       force: true
+      enabled: true
 pagehelper:
   page-size-zero: true
   auto-dialect: true
@@ -14,4 +15,7 @@ pagehelper:
   reasonable: true
 mybatis:
   mapper-locations: classpath*:mappers/**/*.xml
+server:
+  tomcat:
+    uri-encoding: UTF-8
 

@@ -15,5 +15,4 @@ spring:
 lfy:
   service:
     addr:
-      - 99.1.1.1
-      - 10.1.2.1
+      - /login

@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "lfy.service",
+      "type": "com.lyf.common.properties.LfSettings",
+      "sourceType": "com.lyf.common.properties.LfSettings"
+    }
+  ],
+  "properties": [
+    {
+      "name": "lfy.service.addr",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.lyf.common.properties.LfSettings"
+    }
+  ],
+  "hints": []
+}
