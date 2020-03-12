@@ -11,10 +11,15 @@ import java.util.List;
 public interface UserMapper {
 
     @ResultMap("userResultMap")
-    @Select("select LFY_USR_NBR, LFY_USR_NAM, LFY_USR_ADR, LFY_USR_PHE, LFY_ADM_FLG from LFY_USR_INF")
+    @Select("select LFY_USR_NBR, LFY_USR_NAM, LFY_USR_ADR, LFY_USR_PHE, LFY_ADM_FLG, LFY_USR_PWD from LFY_USR_INF")
     List<LfyUsrDo> getList();
 
     void addUser(LfyUsrDo usrDo);
 
+    void uptUser(LfyUsrDo usrDo);
+
+    @ResultMap("userResultMap")
+    @Select("select LFY_USR_NBR, LFY_USR_NAM, LFY_USR_ADR, LFY_USR_PHE, LFY_ADM_FLG, LFY_USR_PWD from LFY_USR_INF where LFY_USR_NBR = #{id}")
+    LfyUsrDo getUser(String id);
 
 }

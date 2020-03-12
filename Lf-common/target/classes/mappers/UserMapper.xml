@@ -8,9 +8,29 @@
         <result property="lfyUsrNam" column="LFY_USR_NAM"/>
         <result property="lfyUsrAdr" column="LFY_USR_ADR"/>
         <result property="lfyUsrPhe" column="LFY_USR_PHE"/>
+        <result property="lfyUsrPwd" column="LFY_USR_PWD"/>
         <result property="lfyAdmFlg" column="LFY_ADM_FLG"/>
     </resultMap>
 
+    <update id="uptUser" parameterType="com.lyf.common.entity.LfyUsrDo">
+        update lfy_usr_inf
+        <set>
+            <if test="lfyUsrNam != null">
+                LFY_USR_NAM = #{lfyUsrNam},
+            </if>
+            <if test="lfyUsrAdr != null">
+                LFY_USR_ADR = #{lfyUsrAdr},
+            </if>
+            <if test="lfyUsrPhe != null">
+                LFY_USR_PHE = #{lfyUsrPhe},
+            </if>
+            <if test="lfyUsrPwd != null">
+                LFY_USR_PWD = #{lfyUsrPwd},
+            </if>
+        </set>
+        where LFY_USR_NBR = #{lfyUsrNbr}
+
+    </update>
 
     <insert id="addUser" parameterType="com.lyf.common.entity.LfyUsrDo">
         insert into lfy_usr_inf (

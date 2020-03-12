@@ -21,4 +21,13 @@ public class UserService {
         userMapper.addUser(user);
     }
 
+    public void uptUser(LfyUsrDo usr) {
+        userMapper.uptUser(usr);
+    }
+
+    public LfyUsrDo getUser(String id) {
+        return userMapper.getUser(id);
+    }
+
+
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyf.common.mapper.LoginMapper" >
+
+    <resultMap type="com.lyf.common.entity.LfyUsrLgn" id="loginResultMap">
+        <result property="lfyLgnNbr" column="LFY_LGN_NBR"/>
+        <result property="lfyUsrNbr" column="LFY_USR_NBR"/>
+        <result property="lfyUsrTok" column="LFY_USR_TOK"/>
+        <result property="lfyLgnTim" column="LFY_LGN_TIM"/>
+        <result property="lfyExpTim" column="LFY_EXP_TIM"/>
+        <result property="lfyLgnSts" column="LFY_LGN_STS"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.lyf.common.entity.LfyUsrLgn">
+        insert into lyf_usr_lgn (
+            LFY_USR_NBR,
+            LFY_USR_TOK,
+            LFY_LGN_TIM,
+            LFY_EXP_TIM,
+            LFY_LGN_STS
+        ) values (
+            #{lfyUsrNbr},
+            #{lfyUsrTok},
+            #{lfyLgnTim},
+            #{lfyExpTim},
+            'A'
+        )
+    </insert>
+
+
+    <update id="logout" parameterType="string">
+        update lyf_usr_lgn set LFY_LGN_STS = 'D'
+        where LFY_USR_NBR = #{value} and LFY_LGN_STS = 'A'
+    </update>
+
+
+</mapper>
+
+
+
